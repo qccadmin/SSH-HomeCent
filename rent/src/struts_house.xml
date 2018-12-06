@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<package name="house" extends="base">
+		<action name="house_*" class="action.HouseAction" method="{1}">
+			<result name="ok">/index.jsp</result>
+			<result name="view" >/publishHouse.jsp</result>
+			<result name="viewdetail" type="chain">hd_query</result>
+		</action>
+		<action name="FileMore" class="action.FailInputAction" method="myFileUp">
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedTypes">image/gif,image/jpeg,image/jpg,image/png</param>
+			</interceptor-ref>
+			<param name="savePath">upload</param>
+			<result name="ok" type="chain">house_queryByRentType</result>
+		</action>
+		<action name="point_*" class="action.PointAction" method="{1}">
+          <interceptor-ref name="Mylogin"></interceptor-ref>
+			<result name="ok" type="chain">
+				house_queryByRentType
+			</result>
+		</action>
+		<action name="hd_*" class="action.HouseDetailAction" method="{1}">
+			<result name="ok">/proinfo.jsp</result>
+			<result name="ajax">/GuanzhuAjax.jsp</result>
+			<result name="guanzhu">/user_guanzhu.jsp</result>
+			<result name="right" >/left_user.jsp</result>
+		</action>
+		   <action name="about_*" class="action.AboutAction" method="{1}">
+           <result name="about">/about.jsp</result>
+           <result name="contact">/contact.jsp</result>
+           <result name="good" >/house.jsp</result>
+           <result name="ajax" >/ajax.jsp</result>
+        </action>
+	</package>
+</struts>

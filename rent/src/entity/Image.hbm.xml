@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
+    <class name="Image" table="t_image">
+        <id name="imageid">
+            <generator class="native"/>
+        </id>
+        <property name="urladdress"/>
+        <many-to-one name="houseid" lazy="false"></many-to-one>
+    </class>
+</hibernate-mapping>
+

@@ -1,0 +1,26 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>		
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.show_sql">true</property>
+		<mapping resource="entity/Common.hbm.xml"/>
+		<mapping resource="entity/Region.hbm.xml"/>
+		<mapping resource="entity/Menu.hbm.xml"/>
+		<mapping resource="entity/Power.hbm.xml"/>
+		<mapping resource="entity/User.hbm.xml"/>
+		<mapping resource="entity/Housetype.hbm.xml"/>
+		<mapping resource="entity/Medium.hbm.xml"/>
+		<mapping resource="entity/Image.hbm.xml"/>		
+		<mapping resource="entity/House.hbm.xml"/>
+		<mapping resource="entity/Inform.hbm.xml"/>
+		<mapping resource="entity/Follow.hbm.xml"/>
+	
+		
+	</session-factory>
+</hibernate-configuration>

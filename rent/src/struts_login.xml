@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+<!-- 	
+	<package name="login" namespace="/" extends="struts-default">
+	<action name="login">
+	<result>/login2.jsp</result>
+	</action>
+	
+	<action name="ziliao" class="action.RegionAction" method="queryRegion" >
+		<result name="query">
+			/user_ziliao.jsp
+		</result>
+	</action>
+	<action name="image" class="action.RegionAction" method="queryRegion" >
+		<result name="query">
+			/user.jsp
+		</result>
+	</action>
+	<action name="upwd" class="action.RegionAction" method="queryRegion" >
+		<result name="query">
+			/user_pwd.jsp
+		</result>
+	</action>
+    <action name="login_*" class="action.LoginAction" method="{1}">
+	<result name="ok" type="chain">house_queryByRentType</result>
+	<result name="ok2">/login2.jsp</result>
+	<result name="ok3">/updateUpwd.jsp</result>
+	<result name="ok5">/user_jingji.jsp</result>
+	<result name="no">/login2.jsp</result>
+	<result name="no2">/forgetUpwd.jsp</result>
+	<result name="no3">/updateUpwd.jsp</result>
+	<result name="no5">/user_ziliao.jsp</result>
+		<result name="no6">/user_pwd.jsp</result>
+	
+	</action>
+	
+	 <action name="house_*" class="action.HouseAction" method="{1}">
+           <result name="ok" >/index.jsp</result>
+           <result name="view">/publishHouse.jsp</result>
+      </action>
+	<action name="updateimage" class="action.LoginAction" method="updateimage">
+	<interceptor-ref name="defaultStack">
+	 <param name="fileUpload.allowedTypes">image/gif,image/jpeg,image/jpg,image/png</param>
+	</interceptor-ref>
+	<param name="savePath">upload</param>
+	<result name="ok4">/user.jsp</result>
+	<result name="no4">/user.jsp</result>
+     <result name="input">/user.jsp</result>
+	</action>
+
+ -->
+	<package name="login" namespace="/" extends="base">
+		<action name="login">
+			<result>/login2.jsp</result>
+		</action>
+		<action name="ziliao" class="action.RegionAction" method="queryRegion">
+			<result name="query">
+				/user_ziliao.jsp
+			</result>
+		</action>
+		<action name="image" class="action.RegionAction" method="queryRegion">
+			<result name="query">
+				/user.jsp
+			</result>
+		</action>
+		<action name="upwd" class="action.RegionAction" method="queryRegion">
+			<result name="query">
+				/user_pwd.jsp
+			</result>
+		</action>
+		<action name="shenqing" class="action.LoginAction" method="shenqing">
+			<result name="ok6" type="chain">
+				index_user_shenqing
+			</result>
+		</action>
+
+		<action name="login_*" class="action.LoginAction" method="{1}">
+		
+			<result name="input">/index.jsp</result>
+			<result name="login" type="chain">house_queryByRentType</result>
+			<result name="ziliao" type="chain">index_user_ziliao</result>
+			<result name="ok2">/login2.jsp</result>
+			<result name="ok3">/updateUpwd.jsp</result>
+			<result name="ok5" type="chain">index_user_pwd</result>
+			<result name="ajax">/ajax.jsp</result>
+			<result name="no">/login2.jsp</result>
+			<result name="no2">/forgetUpwd.jsp</result>
+			<result name="no3">/updateUpwd.jsp</result>
+			<result name="no5">/user_ziliao.jsp</result>
+			<result name="no6">/user_pwd.jsp</result>
+			<result name="ajaxemail">/emailjudge.jsp</result>
+			<result name="ajaxemail2">/emailjudge2.jsp</result>
+			<result name="shenqing" type="chain">index_user_shenqing</result>
+			<result name="houtai">/background.jsp</result>
+
+		</action>
+		<action name="house_*" class="action.HouseAction" method="{1}">
+			<result name="ok">/index.jsp</result>
+			<result name="view" >/publishHouse.jsp</result>
+			<result name="viewdetail" type="chain">hd_query</result>
+		</action>
+		<action name="updateimage" class="action.LoginAction" method="updateimage">
+		<interceptor-ref name="Mylogin"></interceptor-ref>
+			<interceptor-ref name="defaultStack">
+				<param name="fileUpload.allowedTypes">image/gif,image/jpeg,image/jpg,image/png</param>
+			</interceptor-ref>
+			<param name="savePath">upload</param>
+			<result name="ok4" type="chain">index_user</result>
+			<result name="no4">/user.jsp</result>
+			<result name="input">/user.jsp</result>
+		</action>
+		<action name="index_*" class="action.RegionAction" method="queryRegion">
+			<result name="query">
+				/{1}.jsp
+			</result>
+		</action>
+		  <action name="hd_*" class="action.HouseDetailAction" method="{1}">
+	  <result name="ok">/proinfo.jsp</result>
+	  <result name="ajax">/GuanzhuAjax.jsp</result>
+	  <result name="guanzhu">/user_guanzhu.jsp</result>
+	  <result name="right" >/left_user.jsp</result>
+	  </action>
+	</package>
+
+
+
+</struts>

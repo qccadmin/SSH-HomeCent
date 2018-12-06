@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
+	<class name="Inform" table="t_inform">
+		<id name="iid">
+			<generator class="native" />
+		</id>
+		<many-to-one name="userid" class="User" lazy="false"></many-to-one>
+		<many-to-one name="mediumid" class="Medium" lazy="false"></many-to-one>
+		<property name="status"></property>
+
+	</class>
+</hibernate-mapping>
+

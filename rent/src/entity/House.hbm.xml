@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
+    <class name="House" table="t_house">
+        <id name="houseid">
+            <generator class="native"/>
+        </id>
+         <property name="housename"/>
+         <property name="rentmoney"/>
+         <many-to-one name="renttype" class="Common" lazy="false" >
+         	
+         </many-to-one>
+         <property name="area"/>
+         <many-to-one name="mediumid" class="Medium" lazy="false"  >
+         
+         </many-to-one>
+         <many-to-one name="typeid"  class="Housetype" lazy="false" >
+         </many-to-one>
+         <many-to-one name="orientation" class="Common" lazy="false">
+         	
+         </many-to-one>
+         <property name="floor"/>
+         <many-to-one name="renovate" class="Common" lazy="false" >
+         	
+         </many-to-one>
+         <property name="haddress"/>
+         <property name="releaseTime"/>
+         <property name="hstatus"/>
+         <property name="discreption"/>
+         <many-to-one name="regionid" class="Region" lazy="false">
+         	<column name="regionid"></column>
+         </many-to-one>
+         <property name="imgurl"/>
+         <set name="imageid" lazy="false">
+			<key column="imageid"></key>
+			<one-to-many class="Image" />
+		</set>
+		
+    </class>
+</hibernate-mapping>
+

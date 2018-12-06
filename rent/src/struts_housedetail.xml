@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+       <package name="housedetail" extends="base">
+     <action name="hd_*" class="action.HouseDetailAction" method="{1}">
+	  <result name="ok">/proinfo.jsp</result>
+	  <result name="ajax">/GuanzhuAjax.jsp</result>
+	  <result name="guanzhu">/user_guanzhu.jsp</result>
+	  <result name="right" >/left_user.jsp</result>
+	  </action>
+     </package>
+
+</struts>

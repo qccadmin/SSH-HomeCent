@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
+	<class name="Medium" table="t_medium">
+		<id name="mediumid">
+			<generator class="native" />
+		</id>
+		<many-to-one name="userid" class="User" lazy="false"/>
+		<property name="quyu"></property>
+		<set name="houseid" lazy="false">
+			<key column="houseid"></key>
+			<one-to-many class="House" />
+		</set>
+
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="entity">
+    <class name="Power" table="t_power">
+        <id name="powerid">
+            <generator class="native"/>
+        </id>
+        <property name="role"/>
+         <property name="purl"/>
+
+    </class>
+</hibernate-mapping>
+

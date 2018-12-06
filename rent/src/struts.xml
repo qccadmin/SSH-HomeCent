@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<constant name="struts.serve.static.browserCache" value="false"></constant>
+	<constant name="struts.configuration.xml.reload" value="true"></constant>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodlnvocation" value="true"></constant>
+
+
+	
+	
+
+	<package name="base" namespace="/" extends="struts-default">
+
+
+	 <interceptors>
+		<interceptor name="login" class="interceptor.LoginInterceptor"></interceptor>
+		<interceptor-stack name="Mylogin">
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<interceptor-ref name="login">
+<!-- 			<param name="includeMethods">updateById,updateupwd2,shenqing2,infoMedium</param> --> 
+			</interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+
+		<global-results>
+			<result name="nopower">/index.jsp</result>
+			<result name="nologin">/login.jsp</result>
+			<result name="error">/error.jsp</result>
+			<result name="ajax">/ajax.jsp</result>
+			<result name="ok2">/login2.jsp</result>
+		</global-results>
+
+	</package>
+    
+     
+
+    <include file="struts_house.xml"></include>
+    <include file="struts_housetype.xml"></include>
+     <include file="struts_housedetail.xml"></include>
+     <include file="struts_region.xml"></include>
+     <include file="struts_house_list.xml"></include>
+	<include file="struts_login.xml"></include>
+</struts>

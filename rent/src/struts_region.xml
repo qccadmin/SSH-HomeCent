@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+	<package name="region" namespace="" extends="base">
+
+
+	<action name="info_query" class="action.RegionAction" method="queryRegion" >
+
+		<result name="query">
+			/medium_zhiding.jsp
+		</result>
+	</action>
+	<action name="user_jingji" class="action.RegionAction" method="queryRegion" >
+	<interceptor-ref name="Mylogin"></interceptor-ref>
+		<result name="query">
+			/user_jingji.jsp
+		</result>
+	</action>
+	<action name="housetype_*" class="action.HouseTypeAction" method="{1}">
+		<result name="query">
+			/index.jsp
+		</result>
+	</action> 
+	<action name="info_*" class="action.InfoAction" method="{1}">
+		<result name="upinfo_success" >
+			/zhiding.jsp
+		</result>
+		<result name="delete_success" >
+			/zhiding.jsp
+		</result>
+	</action>
+    <action name="region_*" class="action.RegionAction" method="{1}">
+           <result name="queryall">/region.jsp</result>
+           <result name="querybyid">/oneregion.jsp</result>
+           <result name="ajax">/ajax.jsp</result>
+           <result name="success">/update.jsp</result>
+           <result name="addsuccess">/add.jsp</result>
+    </action>
+</package>
+
+</struts>
